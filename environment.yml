@@ -1,0 +1,29 @@
+name: cs3600-llm
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      # JAX (CPU by default; GPU variant installed separately on PACE)
+      # - jax[cpu]
+      # For GPU on PACE, use instead:
+      - jax[cuda12]
+      - torch
+
+      # Flax / NNX (JAX neural network library used by bonsai)
+      - flax>=0.10.0
+
+      # Hugging Face utilities
+      - transformers>=4.26.0
+      - huggingface_hub>=0.20.0
+      - safetensors>=0.4.0
+
+      # Vector search
+      # - faiss-cpu>=1.7.4
+      # On PACE with GPU, also run: pip install faiss-gpu-cu12
+      - faiss-gpu-cu12
+      # Data / numerics
+      - numpy>=1.23.0
+
